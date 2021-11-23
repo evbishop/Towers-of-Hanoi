@@ -72,6 +72,8 @@ MonoBehaviour:
   - {fileID: 6884797887934238072, guid: 4e1f355b5b80e064aa6eb1def77e6c5e, type: 3}
   - {fileID: 8751675987435146072, guid: db38bb001e497ee4d9ee7568f98fe1b5, type: 3}
   - {fileID: 2275281493087015235, guid: e9d2ba5fd91461748afd132cffe88f5b, type: 3}
+  - {fileID: 6113880804892179811, guid: 5708ddee1d5aff54eb722ab2129e4246, type: 3}
+  gameTimerPrefab: {fileID: 6113880804892179811, guid: 5708ddee1d5aff54eb722ab2129e4246, type: 3}
 --- !u!114 &7637249506820753995
 MonoBehaviour:
   m_ObjectHideFlags: 0

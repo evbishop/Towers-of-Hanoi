@@ -12,16 +12,33 @@ public class TimerCounter : NetworkBehaviour
     public override void OnStartServer()
     {
         TimerSelector.ServerOnTimerChanged += HandleTimerChanged;
+        DontDestroyOnLoad(gameObject);
+        HanoiNetworkManager.ServerStartTimer += HandleStartTimer;
     }
 
     public override void OnStopServer()
     {
         TimerSelector.ServerOnTimerChanged -= HandleTimerChanged;
+        HanoiNetworkManager.ServerStartTimer -= HandleStartTimer;
+    }
+
+    void HandleStartTimer()
+    {
+        if (timer > 0) StartCoroutine(TimerCoroutine());
     }
 
     void HandleTimerChanged(int value)
     {
         timer = value;
-        print(timer);
+    }
+
+    IEnumerator TimerCoroutine()
+    {
+        while (timer > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            timer--;
+            print(timer);
+        }
     }
 }

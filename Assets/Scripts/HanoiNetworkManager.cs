@@ -7,13 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class HanoiNetworkManager : NetworkManager
 {
+    [SerializeField] GameObject gameTimerPrefab;
+
     public List<Player> Players { get; } = new List<Player>();
     bool gameInProgress;
 
     public static event Action ClientOnConnected;
     public static event Action ClientOnDisconnected;
+    public static event Action ServerStartTimer;
 
     #region Server
+    public override void OnStartServer()
+    {
+        var gameTimerInstance = Instantiate(gameTimerPrefab);
+        NetworkServer.Spawn(gameTimerInstance);
+    }
+
     public override void OnServerConnect(NetworkConnection conn)
     {
         if (gameInProgress) conn.Disconnect();
@@ -50,6 +59,12 @@ public class HanoiNetworkManager : NetworkManager
         Players.Add(player);
         player.DisplayName = $"Player {Players.Count}";
         player.PartyOwner = Players.Count == 1;
+    }
+
+    public override void OnServerSceneChanged(string sceneName)
+    {
+        if (sceneName.StartsWith("Game"))
+            ServerStartTimer?.Invoke();
     }
     #endregion
 
