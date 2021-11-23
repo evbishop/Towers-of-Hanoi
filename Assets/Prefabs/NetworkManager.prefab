@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7637249506820753993}
   - component: {fileID: 7637249506820753994}
   - component: {fileID: 7637249506820753995}
-  - component: {fileID: 532791962}
-  - component: {fileID: 7598189676976036030}
+  - component: {fileID: 7637249506820754357}
+  - component: {fileID: 7333352380955024570}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -54,7 +54,7 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: Assets/Scenes/Lobby Scene.unity
   onlineScene: 
-  transport: {fileID: 532791962}
+  transport: {fileID: 7637249506820753995}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
@@ -73,10 +73,6 @@ MonoBehaviour:
   - {fileID: 6884797887934238072, guid: 4e1f355b5b80e064aa6eb1def77e6c5e, type: 3}
   - {fileID: 8751675987435146072, guid: db38bb001e497ee4d9ee7568f98fe1b5, type: 3}
   - {fileID: 2275281493087015235, guid: e9d2ba5fd91461748afd132cffe88f5b, type: 3}
-  - {fileID: 4554638575653531511, guid: 2a8098aa6f225f2469eba789d5a026c4, type: 3}
-  - {fileID: 3991895295225179863, guid: bfb60d892eee7e54ab8a373d00b0c096, type: 3}
-  gameTimerPrefab: {fileID: 4554638575653531511, guid: 2a8098aa6f225f2469eba789d5a026c4, type: 3}
-  gameOverHandlerPrefab: {fileID: 3991895295225179863, guid: bfb60d892eee7e54ab8a373d00b0c096, type: 3}
 --- !u!114 &7637249506820753995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +80,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637249506820753998}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
   m_Name: 
@@ -102,14 +98,14 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &532791962
+--- !u!114 &7637249506820754357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637249506820753998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea368fb6f27ec2f40a40e20977992b9c, type: 3}
   m_Name: 
@@ -120,14 +116,14 @@ MonoBehaviour:
   AllowSteamRelay: 1
   UseNextGenSteamNetworking: 1
   SteamUserID: 0
---- !u!114 &7598189676976036030
+--- !u!114 &7333352380955024570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7637249506820753998}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
   m_Name: 

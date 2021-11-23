@@ -2,8 +2,8 @@ using Mirror;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class Player : NetworkBehaviour
 {
@@ -103,7 +103,7 @@ public class Player : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void GameOver(string message)
+    void GameOver(string message)
     {
         gameOverText.text = message;
     }

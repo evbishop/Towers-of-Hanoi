@@ -180,7 +180,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   ringsOnTargetText: {fileID: 9162014285842276162}
-  gameOverText: {fileID: 3823129840037357113}
+  gameOverText: {fileID: 3116102210177522968}
   ringsParent: {fileID: 585250756535170872}
   rodsParent: {fileID: 585250756930913909}
   ringPrefabs:
@@ -446,14 +446,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7532774752754879310, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7532774752754879310, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
-      propertyPath: m_fontSize
-      value: 36
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
 --- !u!4 &6743788230118534525 stripped
@@ -466,9 +458,9 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 2495475350525309493, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
   m_PrefabInstance: {fileID: 6739556506127248759}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3823129840037357113 stripped
+--- !u!114 &3116102210177522968 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7532774752754879310, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8554913617816055919, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
   m_PrefabInstance: {fileID: 6739556506127248759}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
