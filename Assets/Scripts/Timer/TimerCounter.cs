@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class TimerCounter : NetworkBehaviour
 {
-    [SyncVar]
+    [SyncVar(hook = nameof(HandleTimerUpdated))]
     int timer;
+
+    public static event Action<int> ClientOnTimerUpdated;
 
     public override void OnStartServer()
     {
@@ -24,7 +26,7 @@ public class TimerCounter : NetworkBehaviour
 
     void HandleStartTimer()
     {
-        if (timer > 0) StartCoroutine(TimerCoroutine());
+        if (timer > 0) StartCoroutine(CountdownCoroutine());
     }
 
     void HandleTimerChanged(int value)
@@ -32,13 +34,18 @@ public class TimerCounter : NetworkBehaviour
         timer = value;
     }
 
-    IEnumerator TimerCoroutine()
+    IEnumerator CountdownCoroutine()
     {
+        ClientOnTimerUpdated?.Invoke(timer);
         while (timer > 0)
         {
             yield return new WaitForSeconds(1f);
             timer--;
-            print(timer);
         }
+    }
+
+    void HandleTimerUpdated(int oldTime, int newTime)
+    {
+        ClientOnTimerUpdated?.Invoke(newTime);
     }
 }

@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class TimerDisplay : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] TMP_Text timeText;
+
     void Start()
     {
-        
+        TimerCounter.ClientOnTimerUpdated += ClientHandleTimerUpdated;
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
-        
+        TimerCounter.ClientOnTimerUpdated -= ClientHandleTimerUpdated;
+    }
+
+    void ClientHandleTimerUpdated(int time)
+    {
+        timeText.text = TimeSpan.FromSeconds(time).ToString("mm':'ss");
     }
 }
