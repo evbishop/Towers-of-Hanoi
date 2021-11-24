@@ -103,7 +103,7 @@ public class Player : NetworkBehaviour
     }
 
     [ClientRpc]
-    void GameOver(string message)
+    public void GameOver(string message)
     {
         gameOverText.text = message;
     }

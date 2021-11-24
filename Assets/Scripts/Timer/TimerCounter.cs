@@ -10,6 +10,7 @@ public class TimerCounter : NetworkBehaviour
     int timer;
 
     public static event Action<int> ClientOnTimerUpdated;
+    public static event Action ServerOnTimeRanOut;
 
     public override void OnStartServer()
     {
@@ -42,6 +43,7 @@ public class TimerCounter : NetworkBehaviour
             yield return new WaitForSeconds(1f);
             timer--;
         }
+        ServerOnTimeRanOut?.Invoke();
     }
 
     void HandleTimerUpdated(int oldTime, int newTime)
