@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class HanoiNetworkManager : NetworkManager
 {
-    [SerializeField] GameObject gameTimerPrefab;
+    [SerializeField] GameObject gameTimerPrefab, gameOverHandlerPrefab;
 
     public List<Player> Players { get; } = new List<Player>();
     bool gameInProgress;
@@ -21,6 +21,8 @@ public class HanoiNetworkManager : NetworkManager
     {
         var gameTimerInstance = Instantiate(gameTimerPrefab);
         NetworkServer.Spawn(gameTimerInstance);
+        var gameOverHandlerInstance = Instantiate(gameOverHandlerPrefab);
+        NetworkServer.Spawn(gameOverHandlerInstance);
     }
 
     public override void OnServerConnect(NetworkConnection conn)
