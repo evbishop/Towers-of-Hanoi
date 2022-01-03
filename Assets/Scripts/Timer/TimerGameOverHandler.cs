@@ -21,7 +21,7 @@ public class TimerGameOverHandler : NetworkBehaviour
         var players = ((HanoiNetworkManager)NetworkManager.singleton).Players;
         Player winner = null;
         int mostRingsOnTarget = 0;
-        bool draw = false;
+        bool draw = true;
         foreach (var player in players)
             if (player.RingsOnTarget > mostRingsOnTarget)
             {
@@ -29,11 +29,10 @@ public class TimerGameOverHandler : NetworkBehaviour
                 winner = player;
                 draw = false;
             }
-            else if (player.RingsOnTarget == mostRingsOnTarget && mostRingsOnTarget != 0)
+            else if (player.RingsOnTarget == mostRingsOnTarget)
                 draw = true;
         foreach (var player in players)
             if (draw) player.GameOver("Ничья!");
-            else player.GameOver(
-                winner ? $"{winner.DisplayName}\nпобедил(а)!" : "Ничья!");
+            else player.GameOver($"{winner.DisplayName}\nпобедил(а)!");
     }
 }
